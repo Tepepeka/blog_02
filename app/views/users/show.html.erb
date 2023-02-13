@@ -1,0 +1,12 @@
+<div class="card border-warning opacity-75 text-dark-grey" style="max-width: 50%;">
+    <div class="card-body">
+        <h5 class="card-title"><%= @user.name %></h5>
+        <p class="card-text">Mail : <%= @user.email %></p>
+        <p>Age : <%= @user.age %></p>
+        <p>
+            City : <%= City.find(@user.id).name%>
+            Zip_code : <%= City.find(@user.id).zip_code%>
+        </p>
+        <button type="button" class="btn btn-link"><%= link_to "Back", root_path%></button>
+    </div>
+</div>

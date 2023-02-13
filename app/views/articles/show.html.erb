@@ -1,0 +1,8 @@
+<div class="card border-warning opacity-75 text-dark-grey" style="max-width: 50%;">
+    <div class="card-body">
+        <h5 class="card-title"><%= @article.title %></h5>
+        <p class="card-text"><%= @article.body %></p>
+        <footer class="blockquote-footer">by @<cite title="Source Title"><%= link_to User.find(@article.user_id).name, user_path(User.find(@article.user_id)) %></cite></footer></blockquote>
+        <button type="button" class="btn btn-link"><%= link_to "Back", root_path %></button>
+    </div>
+</div>
