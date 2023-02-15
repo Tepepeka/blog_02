@@ -23,12 +23,17 @@
 
   <body>
 
- 
+
     <div class="bg">
+
     <%= render 'layouts/navbar' %>
-      <div class= "container-fluid mt-4">
+    <%= render 'layouts/flash' %>
+      <div class= "container-fluid" style="padding-top: 1rem;">
+
         <%= yield %>
+
       </div>
+
     </div>
 
     <!-- Latest compiled and minified JavaScript -->

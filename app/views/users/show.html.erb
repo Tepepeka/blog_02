@@ -7,6 +7,10 @@
             City : <%= City.find(@user.id).name%>
             Zip_code : <%= City.find(@user.id).zip_code%>
         </p>
+        <h5 class="card-title">Link to articles (<%=@user.articles.all.count%>)</h5>
+        <% @user.articles.each do |article|%>
+            <p>=> <%=link_to article.title, article%></p>
+        <%end%>
         <button type="button" class="btn btn-link"><%= link_to "Back", root_path%></button>
     </div>
 </div>

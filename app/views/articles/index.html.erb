@@ -1,12 +1,13 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <% @articles.take(6).each do |article| %>
+<%=link_to "New Article", new_article_path, class:"btn btn-warning"%>
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
+  <% @articles.last(6).reverse.each do |article| %>
     <div class="col">
       <div class="card h-100  border-warning opacity-75 text-dark-grey">
         <div class="card-body">
-          <h5 class="card-title"><%= article.title %></h5>
-          <p class="card-text"><%= article.body %></p>
-          <footer class="blockquote-footer">by @<cite title="Source Title"><%= link_to User.find(article.user_id).name, user_path(User.find(article.user_id)) %></cite></footer></blockquote>
-          <button type="button" class="btn btn-link"><%= link_to "Show", article %></button>
+          <h5 class="card-title"><%=article.title %></h5>
+          <p class="card-text"><%=article.body %></p>
+          <footer class="blockquote-footer">by @<cite title="Source Title"><%=link_to article.user.name, user_path(article.user_id)%></cite></footer></blockquote>
+          <button type="button" class="btn btn-link"><%=link_to "Show", article%></button>
         </div>
       </div>
     </div>
