@@ -1,7 +1,7 @@
 <%=link_to "New Article", new_article_path, class:"btn btn-warning"%>
 
-<div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
-  <% @articles.last(6).reverse.each do |article| %>
+<div class="overflow-scroll row row-cols-1 row-cols-md-3 g-4 mt-1"  style="max-height: 500px;">
+  <% @articles.reverse.each do |article| %>
     <div class="col">
       <div class="card h-100  border-warning opacity-75 text-dark-grey">
         <div class="card-body">
