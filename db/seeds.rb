@@ -8,9 +8,11 @@
 
 
 # destroy_all
+Comment.destroy_all
 Article.destroy_all
 User.destroy_all
 City.destroy_all
+
 
 
 # Cities create
@@ -20,7 +22,7 @@ City.destroy_all
         zip_code:Faker::Address.zip_code
     )
     puts "*"*(i+1)
-    puts "#{i} city(ies) created"
+    puts "#{i+1} city(ies) created"
 end
 
 
@@ -34,7 +36,7 @@ end
         city_id:City.all.sample.id
     )
     puts "*"*(i+1)
-    puts "#{i} user(s) created"
+    puts "#{i+1} user(s) created"
 end
 
 
@@ -46,5 +48,17 @@ end
         user_id:User.all.sample.id
     )
     puts "*"*(i+1)
-    puts "#{i} article(s) created"
+    puts "#{i+1} article(s) created"
+end
+
+
+# Comments create
+20.times do |i|
+    Comment.create(
+        body:Faker::Lorem.paragraphs(number: 1),
+        article_id:Article.all.sample.id,
+        user_id:User.all.sample.id
+    )
+    puts "*"*(i+1)
+    puts "#{i+1} comment(s) created"
 end

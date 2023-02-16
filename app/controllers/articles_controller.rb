@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.user_id = 12 #car on est pas connecté donc pas de current_user id
+    @article.user_id = 33 #car on est pas connecté donc pas de current_user id
     if @article.save
       redirect_to @article, notice: "Article was successfully created."
     else

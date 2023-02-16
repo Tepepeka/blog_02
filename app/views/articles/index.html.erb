@@ -1,4 +1,5 @@
 <%=link_to "New Article", new_article_path, class:"btn btn-warning"%>
+
 <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
   <% @articles.last(6).reverse.each do |article| %>
     <div class="col">
@@ -6,8 +7,9 @@
         <div class="card-body">
           <h5 class="card-title"><%=article.title %></h5>
           <p class="card-text"><%=article.body %></p>
-          <footer class="blockquote-footer">by @<cite title="Source Title"><%=link_to article.user.name, user_path(article.user_id)%></cite></footer></blockquote>
-          <button type="button" class="btn btn-link"><%=link_to "Show", article%></button>
+          <footer class="blockquote-footer">by @<cite title="Source Title"><%=link_to article.user.name, user_path(article.user_id)%></cite></footer></blockquote>  
+          <%=link_to "Show", article, class:"btn btn-primary"%>
+          <%=article.comments.count %>
         </div>
       </div>
     </div>
