@@ -7,16 +7,15 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to root_path, notice: "#{@user.name} login"
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entitys
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to root_path, notice: "logout"
   end
+
 end
-
-
