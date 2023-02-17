@@ -1,10 +1,13 @@
 class CommentsController < ApplicationController
 
+  before_action :authorized
+  before_action :owner?, only: [:destroy]
+
   def create
     @article = Article.find(params[:article_id])
 
     @comment = @article.comments.new(comment_params)
-    @comment.user_id = 33  #car on est pas connecté donc pas de current_user id (@comment.user = current_user)
+    @comment.user = current_user
     if @comment.save
       redirect_to article_path(@article), notice: "Comment was successfully created."
     else

@@ -3,17 +3,21 @@
     <h5 class="card-title"><%=@article.title %></h5>
     <p class="card-text"><%=@article.body %></p>
     <footer class="blockquote-footer">by @<cite title="Source Title"><%=link_to @article.user.name, user_path(@article.user_id)%></cite></footer></blockquote>
-    <%= link_to "Edit", edit_article_path(@article) %>
-    <%= link_to "Destroy", article_path(@article), data: {
-                turbo_method: :delete,
-                turbo_confirm: "Are you sure?"
-              } %>
+    <% if owner?(@article) %>
+      <%= link_to "Edit", edit_article_path(@article) %>
+      <%= link_to "Destroy", article_path(@article), data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
+    <%end%>
     <%=link_to "Back", root_path%>
 
     <h2>Comments :</h2>
     <%= render @article.comments %>
 
-    <h2>Add a comment :</h2>
-    <%= render 'comments/form' %>
+    <% if logged_in? %>
+      <h2>Add a comment :</h2>
+      <%= render 'comments/form' %>
+    <%end%>
   </div>
 </div>

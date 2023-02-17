@@ -29,10 +29,13 @@ end
 # Users create
 10.times do |i|
     name = Faker::Name.name
+    password = Faker::Internet.password(min_length: 6, max_length: 10)
     User.create(
         name:name,
         email:"#{name}@love.fr",
         age:rand(20..40),
+        password:password,
+        password_confirmation:password,
         city_id:City.all.sample.id
     )
     puts "*"*(i+1)
@@ -62,3 +65,19 @@ end
     puts "*"*(i+1)
     puts "#{i+1} comment(s) created"
 end
+
+# Create the Master :p
+User.create(
+        name:"tepepeka",
+        email:"tepepeka@love.fr",
+        age:35,
+        password:"tepepeka",
+        password_confirmation:"tepepeka",
+        city_id:City.all.sample.id
+    )
+    puts "##################################################"
+    puts "#                                                #"
+    puts "#            MasteR iS CoMinG!!!                 #"
+    puts "#  (╯°□°)╯︵ ┻━┻ ┳━┳ /(º_º/) (╯°Д°)╯︵/(.□ ./)   #"
+    puts "#                                                #"
+    puts "##################################################"

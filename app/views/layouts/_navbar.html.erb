@@ -15,6 +15,24 @@
                     <%=link_to "Contact", "mailto:tepepeka@protonmail.com", class:"nav-link active" %>
                 </li>
             </ul>
+
+            <div class="align-self-center">
+                <% if logged_in? %>
+                    #Hi, <%=link_to current_user.name, user_path(current_user)%>
+                    /
+                    <%= link_to "Sign out", session_path(session.id), data: {
+                                                        turbo_method: :delete,
+                                                        turbo_confirm: "Are you sure?"
+                                                        } %>
+                <% else %>
+                <%= link_to "login", new_session_path %>
+                /
+                <%=link_to "Sign up", new_user_path %>
+                <% end %>
+            </div>
         </div>
     </div>
 </nav>
+
+
+

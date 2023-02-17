@@ -2,8 +2,9 @@
     <%= comment.body %>
 </p>
 <footer class="blockquote-footer">by @<cite title="Source Title"><%=link_to comment.user.name, user_path(comment.user_id)%></cite></footer></blockquote>
-
-<%= link_to "Destroy", [comment.article, comment], data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %>
+<% if owner?(@article) %>
+    <%= link_to "Destroy", [comment.article, comment], data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+    } %>
+<%end%>
