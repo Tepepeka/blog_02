@@ -1,6 +1,6 @@
 <%=link_to "New Article", new_article_path, class:"btn btn-warning"%>
 
-<div class="overflow-scroll row row-cols-1 row-cols-md-3 g-4 mt-1"  style="max-height: 460px;">
+<div class="overflow-scroll row row-cols-1 row-cols-md-3 g-4 mt-1"  style="height: 480px;">
   <% @articles.reverse.each do |article| %>
     <div class="col">
       <div class="card h-100 border-warning opacity-75 text-dark-grey">

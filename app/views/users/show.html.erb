@@ -1,4 +1,4 @@
-<div class="overflow-scroll card border-warning opacity-75 text-dark-grey" style="max-width: 50%; max-height: 480px;">
+<div class="overflow-scroll card border-warning opacity-75 text-black" style="height: 480px;">
     <div class="card-body">
         <h5 class="card-title"><%= @user.name %></h5>
         <p class="card-text">Mail : <%= @user.email %></p>
@@ -15,6 +15,8 @@
         <% @user.articles.each do |article|%>
             <p>=> <%=link_to article.title, article%></p>
         <%end%>
-        <button type="button" class="btn btn-link"><%= link_to "Back", root_path%></button>
+        <div>
+        <%= link_to "Back", root_path, class:"btn btn-secondary text-black"%>
+        </div>
     </div>
 </div>

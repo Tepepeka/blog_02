@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   before_action :authorized
-  before_action :owner?, only: [:destroy]
+  
 
   def create
     @article = Article.find(params[:article_id])

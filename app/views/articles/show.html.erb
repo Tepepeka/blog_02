@@ -1,23 +1,26 @@
-<div class="overflow-scroll card border-warning opacity-75 text-dark-grey" style="max-width: 50%; max-height: 480px;">
+<div class="overflow-scroll card border-warning opacity-75 text-black"  style="height: 480px;">
   <div class="card-body">
     <h5 class="card-title"><%=@article.title %></h5>
     <p class="card-text"><%=@article.body %></p>
     <footer class="blockquote-footer">by @<cite title="Source Title"><%=link_to @article.user.name, user_path(@article.user_id)%></cite></footer></blockquote>
     <% if owner?(@article) %>
-      <%= link_to "Edit", edit_article_path(@article) %>
+      <%= link_to "Edit", edit_article_path(@article), class:"btn btn-success" %>
       <%= link_to "Destroy", article_path(@article), data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
-                } %>
+                }, class:"btn btn-danger" %>
     <%end%>
-    <%=link_to "Back", root_path%>
+   
 
-    <h2>Comments :</h2>
+    <h4 class="mt-2">Comments :</h4>
     <%= render @article.comments %>
 
     <% if logged_in? %>
-      <h2>Add a comment :</h2>
       <%= render 'comments/form' %>
     <%end%>
+
+    <div>
+    <%=link_to "Back", root_path, class:"btn btn-secondary"%>
+    </div>
   </div>
 </div>

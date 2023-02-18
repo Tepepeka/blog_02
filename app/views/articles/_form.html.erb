@@ -1,21 +1,31 @@
-<%= form_with model: article do |form| %>
-    <div>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-      <% article.errors.full_messages_for(:title).each do |message| %>
-        <div class="text-danger">=><%= message %></div>
+<div class="overflow-scroll card border-warning opacity-75 text-black"  style="max-width: 50%;">
+    <div class="card-body">
+    <h5 class="card-title">New article</h5>
+      <%= form_with model: article do |form| %>
+
+        <div class="mb-3">
+          <%= form.label :title, class:"form-label" %><br>
+          <%= form.text_field :title, class:"form-control" %>
+          <% article.errors.full_messages_for(:title).each do |message| %>
+            <div class="text-danger">=><%= message %></div>
+          <% end %>
+        </div>
+  
+        <div class="mb-3">
+          <%= form.label :body, class:"form-label" %><br>
+          <%= form.text_area :body, class:"form-control" %>
+          <% article.errors.full_messages_for(:body).each do |message| %>
+            <div class="text-danger">=> <%= message %></div>
+          <% end %>
+        </div>
+  
+        <div class="mb-3">
+        <%= form.submit "New", class:"btn btn-warning"%>
+          <%= link_to "Back", root_path, class:"btn btn-secondary text-black"%>
+  
+          
+        </div>
       <% end %>
     </div>
-  
-    <div>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
-      <% article.errors.full_messages_for(:body).each do |message| %>
-        <div class="text-danger">=> <%= message %></div>
-      <% end %>
-    </div>
-  
-    <div>
-      <%= form.submit %>
-    </div>
-<% end %>
+</div>
+      
