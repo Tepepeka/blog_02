@@ -16,7 +16,10 @@
 
 
 body, html {
+  position: absolute;
   height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .bg {
@@ -34,4 +37,8 @@ body, html {
 
 a:link { 
   text-decoration:none; 
+}
+
+.overflow-scroll {
+  height: 480px;
 }
