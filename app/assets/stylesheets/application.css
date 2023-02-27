@@ -40,5 +40,5 @@ a:link {
 }
 
 .overflow-scroll {
-  height: 480px;
+  max-height: 70vh;
 }

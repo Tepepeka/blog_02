@@ -16,6 +16,12 @@ class UsersController < ApplicationController
         if @user.valid?
           @user.save
           session[:user_id] = @user.id
+
+        remember_token = SecureRandom.urlsafe_base64
+        @user.remember(remember_token)
+        cookies.permanent[:user_id] = @user.id
+        cookies.permanent[:remember_token] = remember_token
+          
           redirect_to root_path, notice: "Welcome #{@user.name}"
         else
           render :new, status: :unprocessable_entity
